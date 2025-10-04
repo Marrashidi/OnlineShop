@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout | Marjan Beauty Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script src="js/protect.js"></script>
+
+  <header>
+    <nav class="navbar">
+      <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+      <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><button onclick="logout()">Logout</button></li>
+    </ul>
+    </nav>
+  </header>
+
+  <section class="checkout-section">
+    <h2>Checkout</h2>
+    <form id="checkoutForm" class="checkout-form" novalidate>
+  <label for="name">Name</label>
+  <input id="name" type="text" required minlength="3" />
+
+  <label for="email">Email</label>
+  <input id="email" type="email" required />
+
+  <label for="address">Address</label>
+  <textarea id="address" required minlength="3"></textarea>
+
+  <label for="card">Payment Info</label>
+  <input
+    id="card"
+    type="text"
+    inputmode="numeric"
+    pattern="\d{16}"
+    maxlength="16"
+    placeholder="Card Number"
+    required
+  />
+
+  <button type="submit" class="btn">Place Order</button>
+</form>
+  </section>
+
+  <footer>
+    <p>© 2025 Marjan Beauty Store</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
