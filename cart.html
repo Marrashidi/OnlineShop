@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart | Marjan Beauty Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script src="js/protect.js"></script>
+
+  <header>
+    <nav class="navbar">
+      <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html" class="active">Cart</a></li>
+        <li><button onclick="logout()">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: $<span id="cart-total">0</span></h3>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Marjan Beauty Store</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
