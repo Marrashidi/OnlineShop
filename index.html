@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Home | Marjan Beauty Store</title>
+
+   <!-- Font Awesome icons (for icons like phone, Instagram, etc.) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- JavaScript file to protect pages from unauthorized access -->
   <script src="js/protect.js"></script>
 
+  <!-- ===== HEADER & NAVIGATION BAR ===== -->
   <header>
   <nav class="navbar">
     <div class="brand-logo">
-      <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+       <!-- Store Logo -->
+      <a href="index.html">
+  <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+</a>
     </div>
+
+      <!-- Navigation Menu -->
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="skincare.html">Skincare</a></li>
@@ -25,11 +36,14 @@
   </nav>
 </header>
 
+<!-- ===== HERO SECTION (Main Intro Area) ===== -->
   <section class="hero">
     <h1>Welcome to Marjan Beauty Store</h1>
     <p>Your one-stop shop for skincare, makeup, and beauty electronics.</p>
   </section>
 
+
+    <!-- ===== PRODUCT CATEGORY SECTION ===== -->
   <section class="categories">
     <div class="category-card">
       <a href="skincare.html">
@@ -37,12 +51,16 @@
         <h3>Skincare</h3>
       </a>
     </div>
+
+     <!-- Makeup Category -->
     <div class="category-card">
       <a href="makeup.html">
         <img src="images/makeup.jpg" alt="Makeup">
         <h3>Makeup</h3>
       </a>
     </div>
+
+     <!-- Electronics Category -->
     <div class="category-card">
       <a href="electronics.html">
         <img src="images/electorinc.jpg" alt="Electronics">
@@ -51,9 +69,11 @@
     </div>
   </section>
 
+   <!-- ===== CONTACT SECTION (Footer Info Area) ===== -->
 <section class="contact">
   <h3>Get in Touch</h3>
 
+   <!-- Contact Details with Icons -->
   <p><i class="fas fa-map-marker-alt"></i> Kabul, Afghanistan</p>
   <p><i class="fas fa-phone"></i> ‪+93 700 123 456‬</p>
   <p><i class="fas fa-envelope"></i> info@marjanbeauty.com</p>
@@ -65,6 +85,7 @@
   </p>
 </section>
 
+ <!-- ===== MAIN JAVASCRIPT FILE ===== -->
   <script src="js/script.js"></script>
 </body>
 </html>

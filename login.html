@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Login | Marjan Beauty Store</title>
+
+<!-- Link to main CSS file for styling -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+<!-- ===== LOGIN CONTAINER ===== -->
+  <!-- Main login box for user authentication -->
   <div class="login-container">
     <h1>Marjan Beauty Store</h1>
     <h2>Login to Continue</h2>
+
+<!-- ===== LOGIN FORM ===== -->
+  <!-- User must enter valid email and password to continue -->
     <form id="loginForm">
       <label>Email</label>
       <input type="email" id="email" required>
       <label>Password</label>
       <input type="password" id="password" required>
+
+<!-- Login button triggers validation and redirect via script.js -->
       <button type="submit" class="btn">Login</button>
     </form>
+
+<!-- Displays error message if login fails -->
     <p id="error" class="error"></p>
   </div>
 
+<!-- ===== MAIN SCRIPT ===== -->
+  <!-- Handles login validation and session control -->
   <script src="js/script.js"></script>
 </body>
 </html>

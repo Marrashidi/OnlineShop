@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Cart | Marjan Beauty Store</title>
+
+<!-- Link to main stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- Page protection: prevents access without login -->
   <script src="js/protect.js"></script>
 
+<!-- ===== HEADER / NAVIGATION BAR ===== -->
   <header>
     <nav class="navbar">
-      <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+      <a href="index.html">
+  <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+</a>
+       
+    <!-- Navigation Menu -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="cart.html" class="active">Cart</a></li>
@@ -19,17 +28,27 @@
     </nav>
   </header>
 
+<!-- ===== MAIN CONTENT: SHOPPING CART ===== -->
   <section class="cart-section">
     <h2>Your Shopping Cart</h2>
+
+<!-- Dynamic list of products added to the cart (filled via JS) -->
     <div id="cart-items"></div>
+
+<!-- Total price dynamically updated by JS -->   
     <h3>Total: $<span id="cart-total">0</span></h3>
+
+<!-- Checkout button redirects to checkout form -->
     <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
   </section>
 
+<!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Marjan Beauty Store</p>
   </footer>
 
+<!-- ===== MAIN SCRIPT ===== -->
+<!-- Handles cart rendering, updates, and checkout logic -->
   <script src="js/script.js"></script>
 </body>
 </html>

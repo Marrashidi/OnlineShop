@@ -1,3 +1,5 @@
+/* ===== LOGIN SYSTEM ===== */
+// Handle login form submission and verify user credentials
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", function (e) {
@@ -6,6 +8,7 @@ if (loginForm) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+     // Simple hardcoded login check
     if (email === "user@example.com" && password === "1234") {
       sessionStorage.setItem("loggedIn", "true");
       sessionStorage.setItem("username", email);
@@ -17,6 +20,7 @@ if (loginForm) {
   });
 }
 
+/* Redirect user to login page if they are not logged in */
 if (
   !window.location.pathname.includes("login.html") &&
   !window.location.pathname.includes("thankyou.html")
@@ -26,12 +30,14 @@ if (
   }
 }
 
+/* Logout function — clears session and redirects to login page */
 function logout() {
   sessionStorage.clear();
   window.location.href = "login.html";
 }
 
-
+/* ===== LOAD PRODUCTS ===== */
+// Fetch and display products dynamically from products.json
 async function loadProducts(category) {
   try {
     const response = await fetch("data/products.json");
@@ -40,8 +46,10 @@ async function loadProducts(category) {
     const productList = document.getElementById("product-list");
     if (!productList) return;
 
+  // Filter products by category (skincare, makeup, electronics)
     const filtered = products.filter((p) => p.category === category);
 
+  // Create HTML card for each product
     filtered.forEach((product) => {
   const div = document.createElement("div");
   div.classList.add("col-md-14", "mb-4"); 
@@ -53,6 +61,7 @@ async function loadProducts(category) {
         <h5 class="card-title">${product.name}</h5>
         <p class="card-text">$${product.price.toFixed(2)}</p>
         
+        <!-- Button to open product modal -->
         <button class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#productModal"
@@ -64,6 +73,7 @@ async function loadProducts(category) {
           View Details
         </button>
         
+        <!-- Add to cart button -->
       <button class="btn btn-success mt-2"
           onclick="addToCart(${product.id}, '${product.name}', ${product.price}, '${product.image}')">
           Add to Cart
@@ -79,15 +89,18 @@ async function loadProducts(category) {
   }
 }
 
-
+/* ===== CART SYSTEM ===== */
+// Retrieve saved cart from sessionStorage
 function getCart() {
   return JSON.parse(sessionStorage.getItem("cart")) || [];
 }
 
+// Save updated cart to sessionStorage
 function saveCart(cart) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// Add item to cart and show alert
 function addToCart(id, name, price, image) {
   let cart = getCart();
   const existing = cart.find((item) => item.id === id);
@@ -102,6 +115,7 @@ function addToCart(id, name, price, image) {
   alert(`${name} added to cart!`);
 }
 
+/* Display cart items and calculate total */
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
@@ -129,6 +143,7 @@ function renderCart() {
   cartTotal.textContent = total.toFixed(2);
 }
 
+// Remove specific item from cart
 function removeFromCart(index) {
   let cart = getCart();
   cart.splice(index, 1);
@@ -136,7 +151,8 @@ function removeFromCart(index) {
   renderCart();
 }
 
-
+/* ===== CHECKOUT VALIDATION ===== */
+// Validate checkout form fields before submitting
 const checkoutForm = document.getElementById("checkoutForm");
 if (checkoutForm) {
   checkoutForm.addEventListener("submit", function (e) {
@@ -149,6 +165,7 @@ if (checkoutForm) {
 
     let errors = [];
 
+     // Simple form validations
     if (!name || name.length < 3) {
       errors.push("Name must be at least 3 characters long.");
     }
@@ -166,6 +183,7 @@ if (checkoutForm) {
       errors.push("Card number must be 10 digits.");
     }
 
+    // Show error messages or redirect to thank-you page
     if (errors.length > 0) {
       alert(errors.join("\n"));
       return;
@@ -176,7 +194,8 @@ if (checkoutForm) {
   });
 }
 
-
+/* ===== PAGE INITIALIZATION ===== */
+// Load correct products or render cart depending on current page
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname.includes("skincare.html")) {
     loadProducts("skincare");
@@ -192,6 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/* ===== PRODUCT MODAL ===== */
+// Handle Bootstrap modal to show product details dynamically
 const productModal = document.getElementById('productModal');
 
 if (productModal) {
@@ -204,12 +225,14 @@ if (productModal) {
     const image = button.getAttribute('data-image');
     const description = button.getAttribute('data-description');
 
+  // Fill modal content dynamically
     productModal.querySelector('#modalName').textContent = name;
     productModal.querySelector('#modalPrice').textContent = `$${price}`;
     productModal.querySelector('#modalImage').src = image;
     productModal.querySelector('#modalImage').alt = name;
     productModal.querySelector('#modalDescription').textContent = description;
 
+  // Add selected item to cart when button clicked
     const addToCartBtn = productModal.querySelector('#modalAddToCart');
     addToCartBtn.onclick = () => addToCart(parseInt(id), name, parseFloat(price), image);
   });

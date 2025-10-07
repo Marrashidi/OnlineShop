@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Checkout | Marjan Beauty Store</title>
+
+<!-- Link to site-wide CSS for consistent design -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+<!-- Security script: ensures user is logged in -->
   <script src="js/protect.js"></script>
 
+<!-- ===== HEADER / NAVIGATION BAR ===== -->
   <header>
     <nav class="navbar">
-      <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+      <a href="index.html">
+  <img src="images/logo.png" alt="Marjan Beauty Store Logo" class="site-logo">
+</a> 
+      
+    <!-- Navigation menu -->
       <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="cart.html">Cart</a></li>
@@ -19,18 +28,27 @@
     </nav>
   </header>
 
+<!-- ===== CHECKOUT FORM SECTION ===== -->
   <section class="checkout-section">
     <h2>Checkout</h2>
+
+<!-- Checkout form for customer details and payment -->
+  <!-- Form validation handled by JS (script.js) -->
     <form id="checkoutForm" class="checkout-form" novalidate>
+  
+<!-- Customer Name -->
   <label for="name">Name</label>
   <input id="name" type="text" required minlength="3" />
 
+<!-- Customer Email -->
   <label for="email">Email</label>
   <input id="email" type="email" required />
 
+<!-- Delivery Address -->
   <label for="address">Address</label>
   <textarea id="address" required minlength="3"></textarea>
 
+<!-- Payment Information -->
   <label for="card">Payment Info</label>
   <input
     id="card"
@@ -42,14 +60,17 @@
     required
   />
 
+<!-- Submit Button -->
   <button type="submit" class="btn">Place Order</button>
 </form>
   </section>
 
+<!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Marjan Beauty Store</p>
   </footer>
 
+<!-- Main JavaScript file (handles validation, redirection, etc.) -->
   <script src="js/script.js"></script>
 </body>
 </html>
